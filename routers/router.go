@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"beego-admin/controllers"
+	controllersAdmin "beego-admin/controllers/admin"
 	"beego-admin/middleware"
 	"github.com/beego/beego/v2/server/web"
 	"github.com/beego/beego/v2/server/web/context"
@@ -20,136 +20,136 @@ func init() {
 	//admin模块路由
 	admin := web.NewNamespace("/admin",
 		//UEditor控制器
-		web.NSRouter("/editor/server", &controllers.EditorController{}, "get,post:Server"),
+		web.NSRouter("/editor/server", &controllersAdmin.EditorController{}, "get,post:Server"),
 
 		//登录页
-		web.NSRouter("/auth/login", &controllers.AuthController{}, "get:Login"),
+		web.NSRouter("/auth/login", &controllersAdmin.AuthController{}, "get:Login"),
 		//退出登录
-		web.NSRouter("/auth/logout", &controllers.AuthController{}, "get:Logout"),
+		web.NSRouter("/auth/logout", &controllersAdmin.AuthController{}, "get:Logout"),
 		//二维码图片输出
 		web.NSHandler("/auth/captcha/*.png", captcha.Server(240, 80)),
 		//登录认证
-		web.NSRouter("/auth/check_login", &controllers.AuthController{}, "post:CheckLogin"),
+		web.NSRouter("/auth/check_login", &controllersAdmin.AuthController{}, "post:CheckLogin"),
 		//刷新验证码
-		web.NSRouter("/auth/refresh_captcha", &controllers.AuthController{}, "post:RefreshCaptcha"),
+		web.NSRouter("/auth/refresh_captcha", &controllersAdmin.AuthController{}, "post:RefreshCaptcha"),
 
 		//首页
-		web.NSRouter("/index/index", &controllers.IndexController{}, "get:Index"),
+		web.NSRouter("/index/index", &controllersAdmin.IndexController{}, "get:Index"),
 
 		//用户管理
-		web.NSRouter("/admin_user/index", &controllers.AdminUserController{}, "get:Index"),
+		web.NSRouter("/admin_user/index", &controllersAdmin.AdminUserController{}, "get:Index"),
 
 		//操作日志
-		web.NSRouter("/admin_log/index", &controllers.AdminLogController{}, "get:Index"),
+		web.NSRouter("/admin_log/index", &controllersAdmin.AdminLogController{}, "get:Index"),
 
 		//菜单管理
-		web.NSRouter("/admin_menu/index", &controllers.AdminMenuController{}, "get:Index"),
+		web.NSRouter("/admin_menu/index", &controllersAdmin.AdminMenuController{}, "get:Index"),
 		//菜单管理-添加菜单-界面
-		web.NSRouter("/admin_menu/add", &controllers.AdminMenuController{}, "get:Add"),
+		web.NSRouter("/admin_menu/add", &controllersAdmin.AdminMenuController{}, "get:Add"),
 		//菜单管理-添加菜单-创建
-		web.NSRouter("/admin_menu/create", &controllers.AdminMenuController{}, "post:Create"),
+		web.NSRouter("/admin_menu/create", &controllersAdmin.AdminMenuController{}, "post:Create"),
 		//菜单管理-修改菜单-界面
-		web.NSRouter("/admin_menu/edit", &controllers.AdminMenuController{}, "get:Edit"),
+		web.NSRouter("/admin_menu/edit", &controllersAdmin.AdminMenuController{}, "get:Edit"),
 		//菜单管理-更新菜单
-		web.NSRouter("/admin_menu/update", &controllers.AdminMenuController{}, "post:Update"),
+		web.NSRouter("/admin_menu/update", &controllersAdmin.AdminMenuController{}, "post:Update"),
 		//菜单管理-删除菜单
-		web.NSRouter("/admin_menu/del", &controllers.AdminMenuController{}, "post:Del"),
+		web.NSRouter("/admin_menu/del", &controllersAdmin.AdminMenuController{}, "post:Del"),
 
 		//系统管理-个人资料
-		web.NSRouter("/admin_user/profile", &controllers.AdminUserController{}, "get:Profile"),
+		web.NSRouter("/admin_user/profile", &controllersAdmin.AdminUserController{}, "get:Profile"),
 		//系统管理-个人资料-修改昵称
-		web.NSRouter("/admin_user/update_nickname", &controllers.AdminUserController{}, "post:UpdateNickName"),
+		web.NSRouter("/admin_user/update_nickname", &controllersAdmin.AdminUserController{}, "post:UpdateNickName"),
 		//系统管理-个人资料-修改密码
-		web.NSRouter("/admin_user/update_password", &controllers.AdminUserController{}, "post:UpdatePassword"),
+		web.NSRouter("/admin_user/update_password", &controllersAdmin.AdminUserController{}, "post:UpdatePassword"),
 		//系统管理-个人资料-修改头像
-		web.NSRouter("/admin_user/update_avatar", &controllers.AdminUserController{}, "post:UpdateAvatar"),
+		web.NSRouter("/admin_user/update_avatar", &controllersAdmin.AdminUserController{}, "post:UpdateAvatar"),
 		//系统管理-用户管理-添加界面
-		web.NSRouter("/admin_user/add", &controllers.AdminUserController{}, "get:Add"),
+		web.NSRouter("/admin_user/add", &controllersAdmin.AdminUserController{}, "get:Add"),
 		//系统管理-用户管理-添加
-		web.NSRouter("/admin_user/create", &controllers.AdminUserController{}, "post:Create"),
+		web.NSRouter("/admin_user/create", &controllersAdmin.AdminUserController{}, "post:Create"),
 		//系统管理-用户管理-修改界面
-		web.NSRouter("/admin_user/edit", &controllers.AdminUserController{}, "get:Edit"),
+		web.NSRouter("/admin_user/edit", &controllersAdmin.AdminUserController{}, "get:Edit"),
 		//系统管理-用户管理-修改
-		web.NSRouter("/admin_user/update", &controllers.AdminUserController{}, "post:Update"),
+		web.NSRouter("/admin_user/update", &controllersAdmin.AdminUserController{}, "post:Update"),
 		//系统管理-用户管理-启用
-		web.NSRouter("/admin_user/enable", &controllers.AdminUserController{}, "post:Enable"),
+		web.NSRouter("/admin_user/enable", &controllersAdmin.AdminUserController{}, "post:Enable"),
 		//系统管理-用户管理-禁用
-		web.NSRouter("/admin_user/disable", &controllers.AdminUserController{}, "post:Disable"),
+		web.NSRouter("/admin_user/disable", &controllersAdmin.AdminUserController{}, "post:Disable"),
 		//系统管理-用户管理-删除
-		web.NSRouter("/admin_user/del", &controllers.AdminUserController{}, "post:Del"),
+		web.NSRouter("/admin_user/del", &controllersAdmin.AdminUserController{}, "post:Del"),
 
 		//系统管理-角色管理
-		web.NSRouter("/admin_role/index", &controllers.AdminRoleController{}, "get:Index"),
+		web.NSRouter("/admin_role/index", &controllersAdmin.AdminRoleController{}, "get:Index"),
 		//系统管理-角色管理-添加界面
-		web.NSRouter("/admin_role/add", &controllers.AdminRoleController{}, "get:Add"),
+		web.NSRouter("/admin_role/add", &controllersAdmin.AdminRoleController{}, "get:Add"),
 		//系统管理-角色管理-添加
-		web.NSRouter("/admin_role/create", &controllers.AdminRoleController{}, "post:Create"),
+		web.NSRouter("/admin_role/create", &controllersAdmin.AdminRoleController{}, "post:Create"),
 		//菜单管理-角色管理-修改界面
-		web.NSRouter("/admin_role/edit", &controllers.AdminRoleController{}, "get:Edit"),
+		web.NSRouter("/admin_role/edit", &controllersAdmin.AdminRoleController{}, "get:Edit"),
 		//菜单管理-角色管理-修改
-		web.NSRouter("/admin_role/update", &controllers.AdminRoleController{}, "post:Update"),
+		web.NSRouter("/admin_role/update", &controllersAdmin.AdminRoleController{}, "post:Update"),
 		//菜单管理-角色管理-删除
-		web.NSRouter("/admin_role/del", &controllers.AdminRoleController{}, "post:Del"),
+		web.NSRouter("/admin_role/del", &controllersAdmin.AdminRoleController{}, "post:Del"),
 		//菜单管理-角色管理-启用角色
-		web.NSRouter("/admin_role/enable", &controllers.AdminRoleController{}, "post:Enable"),
+		web.NSRouter("/admin_role/enable", &controllersAdmin.AdminRoleController{}, "post:Enable"),
 		//菜单管理-角色管理-禁用角色
-		web.NSRouter("/admin_role/disable", &controllers.AdminRoleController{}, "post:Disable"),
+		web.NSRouter("/admin_role/disable", &controllersAdmin.AdminRoleController{}, "post:Disable"),
 		//菜单管理-角色管理-角色授权界面
-		web.NSRouter("/admin_role/access", &controllers.AdminRoleController{}, "get:Access"),
+		web.NSRouter("/admin_role/access", &controllersAdmin.AdminRoleController{}, "get:Access"),
 		//菜单管理-角色管理-角色授权
-		web.NSRouter("/admin_role/access_operate", &controllers.AdminRoleController{}, "post:AccessOperate"),
+		web.NSRouter("/admin_role/access_operate", &controllersAdmin.AdminRoleController{}, "post:AccessOperate"),
 
 		//设置中心-后台设置
-		web.NSRouter("/setting/admin", &controllers.SettingController{}, "get:Admin"),
+		web.NSRouter("/setting/admin", &controllersAdmin.SettingController{}, "get:Admin"),
 		//设置中心-更新设置
-		web.NSRouter("/setting/update", &controllers.SettingController{}, "post:Update"),
+		web.NSRouter("/setting/update", &controllersAdmin.SettingController{}, "post:Update"),
 
 		//系统管理-开发管理-数据维护
-		web.NSRouter("/database/table", &controllers.DatabaseController{}, "get:Table"),
+		web.NSRouter("/database/table", &controllersAdmin.DatabaseController{}, "get:Table"),
 		//系统管理-开发管理-数据维护-优化表
-		web.NSRouter("/database/optimize", &controllers.DatabaseController{}, "post:Optimize"),
+		web.NSRouter("/database/optimize", &controllersAdmin.DatabaseController{}, "post:Optimize"),
 		//系统管理-开发管理-数据维护-修复表
-		web.NSRouter("/database/repair", &controllers.DatabaseController{}, "post:Repair"),
+		web.NSRouter("/database/repair", &controllersAdmin.DatabaseController{}, "post:Repair"),
 		//系统管理-开发管理-数据维护-查看详情
-		web.NSRouter("/database/view", &controllers.DatabaseController{}, "get,post:View"),
+		web.NSRouter("/database/view", &controllersAdmin.DatabaseController{}, "get,post:View"),
 
 		//用户等级管理
-		web.NSRouter("/user_level/index", &controllers.UserLevelController{}, "get:Index"),
+		web.NSRouter("/user_level/index", &controllersAdmin.UserLevelController{}, "get:Index"),
 		//用户等级管理-添加界面
-		web.NSRouter("/user_level/add", &controllers.UserLevelController{}, "get:Add"),
+		web.NSRouter("/user_level/add", &controllersAdmin.UserLevelController{}, "get:Add"),
 		//用户等级管理-添加
-		web.NSRouter("/user_level/create", &controllers.UserLevelController{}, "post:Create"),
+		web.NSRouter("/user_level/create", &controllersAdmin.UserLevelController{}, "post:Create"),
 		//用户等级管理-修改界面
-		web.NSRouter("/user_level/edit", &controllers.UserLevelController{}, "get:Edit"),
+		web.NSRouter("/user_level/edit", &controllersAdmin.UserLevelController{}, "get:Edit"),
 		//用户等级管理-修改
-		web.NSRouter("/user_level/update", &controllers.UserLevelController{}, "post:Update"),
+		web.NSRouter("/user_level/update", &controllersAdmin.UserLevelController{}, "post:Update"),
 		//用户等级管理-启用
-		web.NSRouter("/user_level/enable", &controllers.UserLevelController{}, "post:Enable"),
+		web.NSRouter("/user_level/enable", &controllersAdmin.UserLevelController{}, "post:Enable"),
 		//用户等级管理-禁用
-		web.NSRouter("/user_level/disable", &controllers.UserLevelController{}, "post:Disable"),
+		web.NSRouter("/user_level/disable", &controllersAdmin.UserLevelController{}, "post:Disable"),
 		//用户等级管理-删除
-		web.NSRouter("/user_level/del", &controllers.UserLevelController{}, "post:Del"),
+		web.NSRouter("/user_level/del", &controllersAdmin.UserLevelController{}, "post:Del"),
 		//用户等级管理-导出
-		web.NSRouter("/user_level/export", &controllers.UserLevelController{}, "get:Export"),
+		web.NSRouter("/user_level/export", &controllersAdmin.UserLevelController{}, "get:Export"),
 
 		//用户管理
-		web.NSRouter("/user/index", &controllers.UserController{}, "get:Index"),
+		web.NSRouter("/user/index", &controllersAdmin.UserController{}, "get:Index"),
 		//用户管理-添加界面
-		web.NSRouter("/user/add", &controllers.UserController{}, "get:Add"),
+		web.NSRouter("/user/add", &controllersAdmin.UserController{}, "get:Add"),
 		//用户管理-添加
-		web.NSRouter("/user/create", &controllers.UserController{}, "post:Create"),
+		web.NSRouter("/user/create", &controllersAdmin.UserController{}, "post:Create"),
 		//用户管理-修改界面
-		web.NSRouter("/user/edit", &controllers.UserController{}, "get:Edit"),
+		web.NSRouter("/user/edit", &controllersAdmin.UserController{}, "get:Edit"),
 		//用户管理-修改
-		web.NSRouter("/user/update", &controllers.UserController{}, "post:Update"),
+		web.NSRouter("/user/update", &controllersAdmin.UserController{}, "post:Update"),
 		//用户管理-启用
-		web.NSRouter("/user/enable", &controllers.UserController{}, "post:Enable"),
+		web.NSRouter("/user/enable", &controllersAdmin.UserController{}, "post:Enable"),
 		//用户管理-禁用
-		web.NSRouter("/user/disable", &controllers.UserController{}, "post:Disable"),
+		web.NSRouter("/user/disable", &controllersAdmin.UserController{}, "post:Disable"),
 		//用户管理-删除
-		web.NSRouter("/user/del", &controllers.UserController{}, "post:Del"),
+		web.NSRouter("/user/del", &controllersAdmin.UserController{}, "post:Del"),
 		//用户管理-导出
-		web.NSRouter("/user/export", &controllers.UserController{}, "get:Export"),
+		web.NSRouter("/user/export", &controllersAdmin.UserController{}, "get:Export"),
 	)
 
 	web.AddNamespace(admin)

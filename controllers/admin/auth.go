@@ -1,4 +1,4 @@
-package controllers
+package admin
 
 import (
 	"beego-admin/formvalidate"
@@ -27,7 +27,7 @@ func (ac *AuthController) Login() {
 	//加载登录配置信息
 	var settingService services.SettingService
 	data := settingService.Show(1)
-	for _,setting := range data {
+	for _, setting := range data {
 		settingService.LoadOrUpdateGlobalBaseConfig(setting)
 	}
 
@@ -37,19 +37,19 @@ func (ac *AuthController) Login() {
 		Captcha    string
 		Background string
 	}{
-		Token:      global.BA_CONFIG.Login.Token,
-		Captcha:    global.BA_CONFIG.Login.Captcha,
+		Token:   global.BA_CONFIG.Login.Token,
+		Captcha: global.BA_CONFIG.Login.Captcha,
 	}
 	//登录背景图片
-	if _,err := os.Stat(strings.TrimLeft(global.BA_CONFIG.Login.Background,"/")); err != nil{
+	if _, err := os.Stat(strings.TrimLeft(global.BA_CONFIG.Login.Background, "/")); err != nil {
 		global.BA_CONFIG.Login.Background = "/static/admin/images/login-default-bg.jpg"
 	}
 	loginConfig.Background = global.BA_CONFIG.Login.Background
 
 	//login界面只需要name字段
 	admin := map[string]interface{}{
-		"name":            global.BA_CONFIG.Base.Name,
-		"title":           "登录",
+		"name":  global.BA_CONFIG.Base.Name,
+		"title": "登录",
 	}
 
 	ac.Data["login_config"] = loginConfig
