@@ -24,8 +24,8 @@ func (sc *SettingController) show(id int) {
 	data := settingService.Show(id)
 
 	sc.Data["data_config"] = data
-	sc.Layout = "public/base.html"
-	sc.TplName = "setting/show.html"
+	sc.Layout = "admin/public/base.html"
+	sc.TplName = "admin/setting/show.html"
 }
 
 // Update 设置中心-更新设置

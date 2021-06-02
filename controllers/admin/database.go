@@ -18,8 +18,8 @@ func (dc *DatabaseController) Table() {
 	dc.Data["data"] = data
 	dc.Data["total"] = affectRows
 
-	dc.Layout = "public/base.html"
-	dc.TplName = "database/table.html"
+	dc.Layout = "admin/public/base.html"
+	dc.TplName = "admin/database/table.html"
 }
 
 // Optimize 优化表
@@ -67,5 +67,5 @@ func (dc *DatabaseController) View() {
 
 	dc.Data["data"] = data
 
-	dc.TplName = "database/view.html"
+	dc.TplName = "admin/database/view.html"
 }

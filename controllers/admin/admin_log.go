@@ -21,6 +21,6 @@ func (alc *AdminLogController) Index() {
 
 	alc.Data["data"] = data
 	alc.Data["paginate"] = pagination
-	alc.Layout = "public/base.html"
-	alc.TplName = "admin_log/index.html"
+	alc.Layout = "admin/public/base.html"
+	alc.TplName = "admin/admin_log/index.html"
 }

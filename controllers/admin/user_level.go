@@ -28,8 +28,8 @@ func (ulc *UserLevelController) Index() {
 	ulc.Data["data"] = data
 	ulc.Data["paginate"] = pagination
 
-	ulc.Layout = "public/base.html"
-	ulc.TplName = "user_level/index.html"
+	ulc.Layout = "admin/public/base.html"
+	ulc.TplName = "admin/user_level/index.html"
 }
 
 // Export 导出
@@ -63,8 +63,8 @@ func (ulc *UserLevelController) Export() {
 
 // Add 用户等级-添加界面
 func (ulc *UserLevelController) Add() {
-	ulc.Layout = "public/base.html"
-	ulc.TplName = "user_level/add.html"
+	ulc.Layout = "admin/public/base.html"
+	ulc.TplName = "admin/user_level/add.html"
 }
 
 // Create 用户等级-添加
@@ -123,8 +123,8 @@ func (ulc *UserLevelController) Edit() {
 
 	ulc.Data["data"] = userLevel
 
-	ulc.Layout = "public/base.html"
-	ulc.TplName = "user_level/edit.html"
+	ulc.Layout = "admin/public/base.html"
+	ulc.TplName = "admin/user_level/edit.html"
 }
 
 // Update 用户等级-修改

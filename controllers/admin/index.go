@@ -58,9 +58,9 @@ func (ic *IndexController) Index() {
 	//系统信息
 	ic.Data["system_info"] = ic.getSystemInfo()
 
-	ic.Layout = "public/base.html"
+	ic.Layout = "admin/public/base.html"
 
-	ic.TplName = "index/index.html"
+	ic.TplName = "admin/index/index.html"
 }
 
 // getSystemInfo 获取系统信息

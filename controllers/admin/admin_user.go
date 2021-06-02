@@ -26,8 +26,8 @@ func (auc *AdminUserController) Index() {
 	auc.Data["data"] = data
 	auc.Data["paginate"] = pagination
 
-	auc.Layout = "public/base.html"
-	auc.TplName = "admin_user/index.html"
+	auc.Layout = "admin/public/base.html"
+	auc.TplName = "admin/admin_user/index.html"
 }
 
 // Add 用户管理-添加界面
@@ -36,8 +36,8 @@ func (auc *AdminUserController) Add() {
 	roles := adminRoleService.GetAllData()
 
 	auc.Data["roles"] = roles
-	auc.Layout = "public/base.html"
-	auc.TplName = "admin_user/add.html"
+	auc.Layout = "admin/public/base.html"
+	auc.TplName = "admin/admin_user/add.html"
 }
 
 // Create 用户管理-添加界面
@@ -101,8 +101,8 @@ func (auc *AdminUserController) Edit() {
 	auc.Data["data"] = adminUser
 	auc.Data["role_arr"] = strings.Split(adminUser.Role, ",")
 
-	auc.Layout = "public/base.html"
-	auc.TplName = "admin_user/edit.html"
+	auc.Layout = "admin/public/base.html"
+	auc.TplName = "admin/admin_user/edit.html"
 }
 
 // Update 系统管理-用户管理-修改
@@ -243,8 +243,8 @@ func (auc *AdminUserController) Del() {
 
 // Profile 系统管理-个人资料
 func (auc *AdminUserController) Profile() {
-	auc.Layout = "public/base.html"
-	auc.TplName = "admin_user/profile.html"
+	auc.Layout = "admin/public/base.html"
+	auc.TplName = "admin/admin_user/profile.html"
 }
 
 // UpdateNickName 系统管理-个人资料-修改昵称

@@ -39,8 +39,8 @@ func (uc *UserController) Index() {
 	uc.Data["paginate"] = pagination
 	uc.Data["user_level_map"] = userLevelMap
 
-	uc.Layout = "public/base.html"
-	uc.TplName = "user/index.html"
+	uc.Layout = "admin/public/base.html"
+	uc.TplName = "admin/user/index.html"
 }
 
 // Export 导出
@@ -94,8 +94,8 @@ func (uc *UserController) Add() {
 	userLevel := userLevelService.GetUserLevel()
 
 	uc.Data["user_level_list"] = userLevel
-	uc.Layout = "public/base.html"
-	uc.TplName = "user/add.html"
+	uc.Layout = "admin/public/base.html"
+	uc.TplName = "admin/user/add.html"
 }
 
 // Create 添加用户
@@ -159,8 +159,8 @@ func (uc *UserController) Edit() {
 	uc.Data["user_level_list"] = userLevel
 	uc.Data["data"] = user
 
-	uc.Layout = "public/base.html"
-	uc.TplName = "user/edit.html"
+	uc.Layout = "admin/public/base.html"
+	uc.TplName = "admin/user/edit.html"
 }
 
 // Update 用户-修改

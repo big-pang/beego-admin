@@ -23,8 +23,8 @@ func (amc *AdminMenuController) Index() {
 	var adminTreeService services.AdminTreeService
 	amc.Data["data"] = adminTreeService.AdminMenuTree()
 
-	amc.Layout = "public/base.html"
-	amc.TplName = "admin_menu/index.html"
+	amc.Layout = "admin/public/base.html"
+	amc.TplName = "admin/admin_menu/index.html"
 }
 
 // Add 添加菜单界面.
@@ -37,8 +37,8 @@ func (amc *AdminMenuController) Add() {
 	amc.Data["parents"] = parents
 	amc.Data["log_method"] = new(models.AdminMenu).GetLogMethod()
 
-	amc.Layout = "public/base.html"
-	amc.TplName = "admin_menu/add.html"
+	amc.Layout = "admin/public/base.html"
+	amc.TplName = "admin/admin_menu/add.html"
 }
 
 // Create 添加菜单.
@@ -105,8 +105,8 @@ func (amc *AdminMenuController) Edit() {
 	amc.Data["parents"] = parents
 	amc.Data["log_method"] = new(models.AdminMenu).GetLogMethod()
 
-	amc.Layout = "public/base.html"
-	amc.TplName = "admin_menu/edit.html"
+	amc.Layout = "admin/public/base.html"
+	amc.TplName = "admin/admin_menu/edit.html"
 }
 
 // Update 菜单更新.

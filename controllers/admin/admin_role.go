@@ -26,14 +26,14 @@ func (arc *AdminRoleController) Index() {
 
 	arc.Data["data"] = data
 	arc.Data["paginate"] = pagination
-	arc.Layout = "public/base.html"
-	arc.TplName = "admin_role/index.html"
+	arc.Layout = "admin/public/base.html"
+	arc.TplName = "admin/admin_role/index.html"
 }
 
 // Add 角色管理-添加界面.
 func (arc *AdminRoleController) Add() {
-	arc.Layout = "public/base.html"
-	arc.TplName = "admin_role/add.html"
+	arc.Layout = "admin/public/base.html"
+	arc.TplName = "admin/admin_role/add.html"
 }
 
 // Create 角色管理-添加角色.
@@ -88,8 +88,8 @@ func (arc *AdminRoleController) Edit() {
 
 	arc.Data["data"] = adminRole
 
-	arc.Layout = "public/base.html"
-	arc.TplName = "admin_role/edit.html"
+	arc.Layout = "admin/public/base.html"
+	arc.TplName = "admin/admin_role/edit.html"
 }
 
 // Update 菜单管理-角色管理-修改.
@@ -264,8 +264,8 @@ func (arc *AdminRoleController) Access() {
 	arc.Data["data"] = data
 	arc.Data["html"] = html
 
-	arc.Layout = "public/base.html"
-	arc.TplName = "admin_role/access.html"
+	arc.Layout = "admin/public/base.html"
+	arc.TplName = "admin/admin_role/access.html"
 }
 
 // AccessOperate 菜单管理-角色管理-角色授权.

@@ -57,7 +57,7 @@ func (ac *AuthController) Login() {
 	ac.Data["captcha"] = utils.GetCaptcha()
 	ac.Data["admin"] = admin
 
-	ac.TplName = "auth/login.html"
+	ac.TplName = "admin/auth/login.html"
 }
 
 // Logout 退出登录

@@ -12,24 +12,24 @@
 
 {{if ne true .admin.pjax}}
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    {{template "public/head_css.html" .}}
-    {{template "public/head_js.html" .}}
+    {{template "admin/public/head_css.html" .}}
+    {{template "admin/public/head_js.html" .}}
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 {{end}}
 
     <!-- 顶部 -->
-    {{template "public/header.html" .}}
+    {{template "admin/public/header.html" .}}
     <!-- 左侧 -->
-    {{template "public/sidebar.html" .}}
+    {{template "admin/public/sidebar.html" .}}
     <!-- 内容 -->
     <div class="content-wrapper" id="pjax-container">
         {{.LayoutContent}}
     </div>
-    {{template "public/footer.html" .}}
+    {{template "admin/public/footer.html" .}}
 
-    {{template "public/control_sidebar.html" .}}
+    {{template "admin/public/control_sidebar.html" .}}
 
 {{if ne true .admin.pjax}}
 </div>
